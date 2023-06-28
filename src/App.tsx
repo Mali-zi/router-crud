@@ -1,59 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { IPost } from './models/index';
-import CreatePosts from './components/CreatePosts';
-import InputForm from './components/InputForm';
-import ButtonUpdate from './components/ButtonUpdate';
-import axios from 'axios';
+import Main from './components/Main';
+import { Route, Routes } from 'react-router-dom';
+import { Post } from './models/index';
+import NewPost from './components/NewPost';
+
 
 function App() {
-  const [massage, setMassage] = useState('');
-  const [posts, setPosts] = useState<IPost[]>([]);
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    if (massage) {
-      axios.post(`https://64945f8a0da866a95367a781.mockapi.io/posts`, {
-        massage,
-      });
-      event.preventDefault();
-      setMassage('');
-    }
-  };
-
-  function handleUpdate() {
-    axios.get(`https://64945f8a0da866a95367a781.mockapi.io/posts`)
-        .then((response) => {
-          setPosts(response.data);
-        })
-  };
-
-  useEffect(() => {
-    axios.get(`https://64945f8a0da866a95367a781.mockapi.io/posts`)
-        .then((response) => {
-          setPosts(response.data);
-        })
-  }, []);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   return (
     <div className="App">
       <div className="container">
-        <div>
-          <header className='header'>
-            <h1>Notes</h1>
-            <ButtonUpdate 
-              handleUpdate={handleUpdate}
-            />
-          </header>
-          <CreatePosts 
-            posts={posts}
-            setPosts={setPosts}
-          />
-          <InputForm 
-            massage={massage}
-            setMassage={setMassage}
-            handleSubmit={handleSubmit}
-          />
-        </div>
+      <Routes>
+          <Route path="/" element={
+            <Main 
+              posts={posts}
+              setPosts={setPosts}
+            />} />
+          <Route path="/posts/new" element={
+            <NewPost 
+              setPosts={setPosts}
+            />} />
+          {/* <Route path="/posts/:id" element={<TimeAttackPage />} />
+          <Route path="/forza" element={<ForzaPage />} /> */}
+        </Routes>
       </div>
     </div>
   );
