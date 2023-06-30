@@ -11,6 +11,7 @@ body {
 
 .App {
   display: flex;
+  width: 600px;
   min-height: 100vh;
   margin: 0 auto;
   flex-direction: column;
@@ -19,124 +20,103 @@ body {
 }
 
 .container {
-  width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.header {
-  position: relative;
-  width: 200px;
-  height: 60px;
-}
-
-.update {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  background: none;
-}
-
-label {
-  display: block;
-  margin-right: 10px;
-  width: 180px;
-  text-align: start;
-  font-size: 1.1rem;
-}
-
-.inputForm {
-  position: relative;
-  width: 400px;
-  height: 250px;
-}
-
-.inputPlace {
-  position: relative;
-  display: inline-block;
-  display: block;
+  justify-content: flex-start;
+  background-color: #e6e3e3;
+  width: 100%;
+  height: 100%;
   padding: 10px;
-  width: 400px;
-  height: 200px;
-  overflow: hidden;
-  resize: none;
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-.delete {
-  position: absolute;
-  right: -1rem;
-  top: -1rem;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  background: none;
-}
-
-.send {
-  position: absolute;
-  right: 10px;
-  bottom: 25px;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  background: none;
-}
-
-.icon {
-  display: inline;
-  height: 2rem;
-  text-align: center;
-  background-color: #fff;
-}
-
-.iconSend {
-  height: 3rem;
-}
-
-.iconUpdate {
-  height: 4rem;
-}
-
-.mainList {
-  position: relative;
-  transition: 0.4s;
-  min-height: 1.5rem;
-  margin: 0 2rem 2rem 0;
-}
-
-.textPlace {
-  width: 250px;
-  min-height: 200px;
-  height: auto;
-  text-align: center;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  padding: 20px;
-
+  flex-wrap: nowrap;
 }
 
 .postsStore {
-  margin-bottom: 30px;
-  font-size: 1rem;
-  border: none;
-  padding: 20px 0;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.create-post {
+  display: flex;
+  width: 100%;
+  height: 46px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 8px;
+}
+
+.create-post-place {
+  width: 450px;
+  height: 30px;
+}
+
+.create-post-btn {
+  width: 100px;
+  height: 26px;
+  background-color: #4c729e;
+  color: #ffffff;
+  border-radius: 3px;
+  border-style: hidden;
+  font-weight: 500;
 }
 
 .mylist {
   display: flex;
-  flex-wrap: wrap;
-  width: 900px;
+  flex-direction: column;
+  width: 100%;
   padding: 0;
   list-style: none;
   justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.mainList {
+  width: 100%;
+  transition: 0.4s;
+  min-height: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.textPlace {
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  border-style: hidden;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+/* PostCard */
+
+.post {
+  width: 100%;
+  background-color: #d7eb7e;
+}
+
+.post-top {
+  width: 100%;
+  padding: ;
+}
+
+.avatar {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-img {
+  position: absolute;
+  left: -5px;
+  top: -2px;
+  width: 59px;
+  height: 73px;
+
 }

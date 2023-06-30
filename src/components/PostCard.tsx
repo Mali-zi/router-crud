@@ -3,8 +3,11 @@ import { Post } from '../models/index';
 export default function PostCard({ content, created }: Post) {
   return (
     <div className='post'>
-      <div className='avatar'>
-        <img src='' alt='avatar'></img>
+      <div className='post-top'>
+        <div className='avatar'>
+          <img src={require('../img/avatar.jpg')} alt='avatar' className='avatar-img'></img>
+        </div>
+      </div>
         {/* <img
   src="clock-demo-200px.png"
   alt="Clock"
@@ -13,7 +16,6 @@ export default function PostCard({ content, created }: Post) {
 
 {/* <img width="100" height="200" src="https://picsum.photos/200/301"></img> */}
 
-      </div>
       <div className='name'>Ilnaz Gilyazov</div>
       <div className='status'>Основатель группы</div>
       <div className='created'>{new Date(created).toLocaleString()}</div>

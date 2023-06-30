@@ -44,9 +44,10 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
 
   return (
     <div className='postsStore'>
-      <div>
+      <div className='create-post'>
+        <div className='create-post-place'></div>
         <Link to={"/posts/new"}>
-          <button>Создать пост</button>
+          <button className='create-post-btn'>Создать пост</button>
         </Link>
       </div>
       <ul className="mylist">
