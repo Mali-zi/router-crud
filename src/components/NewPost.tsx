@@ -23,13 +23,27 @@ export default function NewPost({ setPosts }: NewPostProps): React.ReactElement 
   return (
     <div className='new-post'>
       <div className='new-post-top'>
-        <div>Публикация</div>
-        <div>Фото/видео</div>
-        <div>Прямой эфир</div>
-        <div>Еще</div>
-        <div>Закрыть</div>
+        <div className='new-post-top-left'>
+          <div className='new-post-top-item'>Публикация</div>
+          <b className='new-post-top-item'>|</b>
+          <div className='new-post-top-item'>Фото/видео</div>
+          <b className='new-post-top-item'>|</b>
+          <div className='new-post-top-item'>Прямой эфир</div>
+          <b className='new-post-top-item'>|</b>
+          <div className='new-post-top-item'>Еще</div>
+        </div>
+        <div className='new-post-top-left'>
+          <div className='reaction-icon'>
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="20px" height="20px">
+              <path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 
+                20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 
+                4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+            </svg>
+          </div>
+        </div>
+
       </div>
-      <hr></hr>
+      <hr className='hr-line' />
       <label htmlFor='message'>Tell us your story:</label>
       <textarea
         id='message'
