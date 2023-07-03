@@ -185,6 +185,7 @@ a {
   height: 24px;
   fill: var(--dark-grey);
   stroke-width: "1";
+  text-align: end;
 }
 
 .avatar-small {
@@ -245,4 +246,39 @@ a {
 
 .new-post-top-left {
   display: flex;
+}
+
+.new-post-midle {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.inputPlace {
+  width: 100%;
+  height: auto;
+  margin: 0 10px;
+  color: black;
+  background-color: #fff;
+  border: none;
+}
+
+.inputPlace-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--light-grey);
+}
+
+.new-post-midle-bottom {
+  align-items: end;
+}
+
+.new-post-bottom {
+  /* width: 100%; */
+  height: 50px;
+  margin: 0 10px;
+  background-color: #fff;
+  border: none;
+  text-align: end;
 }
