@@ -187,6 +187,7 @@ a {
   fill: var(--dark-grey);
   stroke-width: "1";
   text-align: end;
+  text-align: end;
 }
 
 .avatar-small {
