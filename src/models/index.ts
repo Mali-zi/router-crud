@@ -1,5 +1,10 @@
 export interface Post {
-  postId?: number,
+  postId: number,
+  content: string,
+  created: number,
+}
+
+export interface PostCardProps {
   content: string,
   created: number,
 }
