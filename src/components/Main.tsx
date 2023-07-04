@@ -3,6 +3,8 @@ import axios from 'axios';
 import PostCard from './PostCard';
 import { Link } from 'react-router-dom';
 import { CreatePostsProps } from '../models/index';
+import CommentField from '../components/CommentField';
+
 
 /** 
  * Компонент CreatePosts выводит сообщения, введенные пользователем.
@@ -34,7 +36,10 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
               <PostCard 
                 content={post.content}
                 created={post.created}
-              />
+              >
+                <CommentField />
+              </PostCard>
+
             </div>
           </Link>
         </li>

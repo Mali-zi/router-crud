@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import { Post } from './models/index';
 import NewPost from './components/NewPost';
 
-
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -25,6 +24,9 @@ function App() {
           {/* <Route path="/posts/:id" element={<TimeAttackPage />} />
           <Route path="/forza" element={<ForzaPage />} /> */}
         </Routes>
+
+
+
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ export interface Post {
 export interface PostCardProps {
   content: string,
   created: number,
+  children: JSX.Element;
 }
 
 export interface CreatePostsProps {
