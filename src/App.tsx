@@ -15,7 +15,7 @@ function App() {
       <div className="container">
       <Routes>
 
-          <Route path="/posts/:postId" element={
+          <Route path="/posts/:id" element={
               <ViewCard 
               />} 
             />

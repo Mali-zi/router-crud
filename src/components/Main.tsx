@@ -19,8 +19,11 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
     axios.get(`http://localhost:7070/posts`)
         .then((response) => {
           setPosts(response.data);
+          // alert(response.data[1].id)
         })
   }, [posts]);
+
+  
 
   let postsList: JSX.Element[] = [<></>];
   if (posts) {
