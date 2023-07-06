@@ -1,5 +1,5 @@
 export interface Post {
-  postId: number,
+  postId: string,
   content: string,
   created: number,
 }
@@ -7,7 +7,7 @@ export interface Post {
 export interface PostCardProps {
   content: string,
   created: number,
-  children: JSX.Element;
+  children: React.ReactElement;
 }
 
 export interface CreatePostsProps {

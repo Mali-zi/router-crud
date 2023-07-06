@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PostCard from './PostCard';
 import { Link } from 'react-router-dom';
 import { CreatePostsProps } from '../models/index';
 import CommentField from '../components/CommentField';
-
+import { Route, Routes, useParams } from 'react-router-dom';
 
 /** 
  * Компонент CreatePosts выводит сообщения, введенные пользователем.
  * В качестве props принимает переменные состояния: posts и setPosts.
  */
 export default function Main({ posts, setPosts }: CreatePostsProps): React.ReactElement{
-
   function handleClickCreate() {
 
   };
@@ -26,23 +25,25 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
   let postsList: JSX.Element[] = [<></>];
   if (posts) {
     postsList = posts.map(post => {
+      const { postId, content, created } = post;
       return (
         <li 
-          key={post.postId}
+          key={postId}
           className="mainList"
         >
-          <Link to={`/posts/${post.postId}`}>
+
+          <Link to={`/posts/${postId}`} state={post}>
             <div className='textPlace'>
               <PostCard 
-                content={post.content}
-                created={post.created}
+                content={content}
+                created={created}
               >
                 <CommentField />
               </PostCard>
-
             </div>
           </Link>
         </li>
+
       )
     });
   };
@@ -55,6 +56,7 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
           <button className='create-post-btn'>Создать пост</button>
         </Link>
       </div>
+
       <ul className="mylist">
         {postsList}
       </ul>

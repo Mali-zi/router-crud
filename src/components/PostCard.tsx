@@ -1,7 +1,4 @@
 import { PostCardProps } from '../models/index';
-import React, { useState, useEffect } from 'react';
-// import { Children } from 'react';
-
 
 export default function PostCard({ content, created, children }: PostCardProps) {
 
