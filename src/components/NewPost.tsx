@@ -16,7 +16,7 @@ export default function NewPost({ setPosts }: NewPostProps): React.ReactElement 
         setPosts(response.data);
         setMessage('');
         redirect('/')
-      });
+      })
     }
   };
 
@@ -47,7 +47,9 @@ export default function NewPost({ setPosts }: NewPostProps): React.ReactElement 
       </div>
       <hr className='hr-line' />
       <div className='new-post-midle'>
-        <div className='inputPlace-avatar'></div>
+        <div className='avatar'>
+          <img src={require('../img/avatar.jpg')} alt='avatar' className='avatar-img'></img>
+        </div>
         {/* <label htmlFor='message'>Tell us your story:</label> */}
         <textarea
           id='message'

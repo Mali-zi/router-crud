@@ -10,16 +10,18 @@ import ViewCard from './components/ViewCard';
 function App() {
   const [posts, setPosts] = useState<Post[]>([]);
 
+
   return (
     <div className="App">
       <div className="container">
+
+
+
+
       <Routes>
+          <Route path="/posts/:id" element={<ViewCard />}>
 
-          <Route path="/posts/:id" element={
-              <ViewCard 
-              />} 
-            />
-
+            </Route>
           <Route path="/posts/new" element={
             <NewPost 
               setPosts={setPosts}
@@ -32,7 +34,6 @@ function App() {
             />} 
           >
           </Route>
-
         </Routes>
       </div>
     </div>

@@ -1,5 +1,5 @@
 export interface Post {
-  postId: string,
+  id: string,
   content: string,
   created: number,
 }
@@ -19,6 +19,26 @@ export interface NewPostProps {
   setPosts: (val: Post[]) => void,
 }
 
+export interface LinkProps
+  extends Omit<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    "href"
+  > {
+  replace?: boolean;
+  state?: any;
+  to: To;
+  reloadDocument?: boolean;
+  preventScrollReset?: boolean;
+  relative?: "route" | "path";
+}
+
+type To = string | Partial<Path>;
+
+interface Path {
+  pathname: string;
+  search: string;
+  hash: string;
+}
 
 // export interface IProps1 {
 //   event: React.FormEvent<HTMLFormElement>

@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PostCard from './PostCard';
+import EditPost from './EditPost';
 import { useLocation } from 'react-router-dom';
-import { Link, redirect } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Post } from '../models';
 
 export default function ViewCard(): React.ReactElement {
   const location = useLocation();
-  const {id, content, created } = location.state;
+  const data = location.state as Post;
+  const content = data.content;
+  const created = data.created;
+  const id = data.id;
+  const [edit, setEdit] = useState(false);
+  const navigate = useNavigate();
 
   function deletePost() {
-    // alert(id);
     axios
       .delete(`http://localhost:7070/posts/${id}`)
-      .then(() => {
-        // alert("Post deleted!");
-        redirect('/')
-      });
+      .then(() => navigate('/'))
   }
 
+  const viewPost = () => {
   return (
     <PostCard
       content={content}
@@ -26,17 +29,23 @@ export default function ViewCard(): React.ReactElement {
     >
       <div className='new-post-bottom view-card-bottom'>
         <div className='view-card-btns'>
-          <button className='view-card-btn'>Изменить</button>
           <Link to={"/"}>
+            <button className='view-card-btn'>Изменить</button>
+          </Link>
             <button 
               className='view-card-btn view-card-btn-red'
               onClick={deletePost}
             >
               Удалить
             </button>
-          </Link>
         </div>
       </div>
     </PostCard>
+  )};
+
+  return (
+    <>
+      { edit ? <EditPost post={data} /> : viewPost() }
+    </>
   )
 }

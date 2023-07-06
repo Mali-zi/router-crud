@@ -65,14 +65,14 @@ a {
 }
 
 .create-post-btn {
-  width: 100px;
   height: 26px;
-  padding: 0;
   background-color: #4c729e;
   color: #ffffff;
   border-radius: 3px;
   border-style: hidden;
   font-weight: 500;
+  cursor: pointer;
+  padding: 0 10px;
 }
 
 .mylist {
@@ -262,7 +262,7 @@ a {
 .inputPlace {
   display: block;
   width: 480px;
-  min-height: 100px;
+  min-height: 70px;
   max-height: 300px;
   margin: 0 10px;
   line-height: 24px;
@@ -284,7 +284,8 @@ a {
 
 .new-post-midle-bottom {
   align-items: end;
-  padding: 10px;
+  padding: 0 10px;
+  margin-bottom: 5px;
 }
 
 .new-post-bottom {
@@ -322,4 +323,38 @@ a {
 .view-card-bottom {
   height: 35px;
   background-color: #ffffff;
+}
+
+/* EditPost */
+
+.edit-post-top {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.edit-post-midle-bottom {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 160px;
+  margin: 0 10px;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+}
+
+.edit-post-item {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+  margin-left: 30px;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: var(--light-grey);
+}
+
+.edit-post-icon {
+  margin-right: 10px;
 }
