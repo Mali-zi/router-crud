@@ -15,11 +15,11 @@ export default function ViewCard(): React.ReactElement {
   const [edit, setEdit] = useState(false);
   const navigate = useNavigate();
 
-  function deletePost() {
+  function handleDeletePost() {
     axios
       .delete(`http://localhost:7070/posts/${id}`)
       .then(() => navigate('/'))
-  }
+  };
 
   const viewPost = () => {
   return (
@@ -29,12 +29,15 @@ export default function ViewCard(): React.ReactElement {
     >
       <div className='new-post-bottom view-card-bottom'>
         <div className='view-card-btns'>
-          <Link to={"/"}>
-            <button className='view-card-btn'>Изменить</button>
-          </Link>
+            <button 
+              className='view-card-btn'
+              onClick={() => setEdit(true)}
+            >
+              Изменить
+            </button>
             <button 
               className='view-card-btn view-card-btn-red'
-              onClick={deletePost}
+              onClick={handleDeletePost}
             >
               Удалить
             </button>
@@ -45,7 +48,7 @@ export default function ViewCard(): React.ReactElement {
 
   return (
     <>
-      { edit ? <EditPost post={data} /> : viewPost() }
+      { edit ? <EditPost post={data} setEdit={setEdit} /> : viewPost() }
     </>
   )
 }

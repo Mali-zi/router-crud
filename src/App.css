@@ -187,7 +187,6 @@ a {
   fill: var(--dark-grey);
   stroke-width: "1";
   text-align: end;
-  text-align: end;
 }
 
 .avatar-small {
@@ -262,7 +261,7 @@ a {
 .inputPlace {
   display: block;
   width: 480px;
-  min-height: 70px;
+  min-height: 80px;
   max-height: 300px;
   margin: 0 10px;
   line-height: 24px;
@@ -332,14 +331,13 @@ a {
   font-weight: 600;
 }
 
-.edit-post-midle-bottom {
+.edit-post-midle {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 160px;
   margin: 0 10px;
   justify-content: flex-start;
-  /* align-items: flex-start; */
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--dark-grey);
@@ -356,5 +354,31 @@ a {
 }
 
 .edit-post-icon {
-  margin-right: 10px;
+  margin: 0 10px;
+}
+
+.delete {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+}
+
+.icons {
+  display: inline;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.reaction-icon-edit {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  fill: var(--dark-grey);
+  text-align: end;
 }
