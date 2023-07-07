@@ -26,18 +26,15 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
   if (posts) {
     postsList = posts.map(post => {
       if (post) {
-        const { id, content, created }: Post = post;
         return (
           <li 
-            key={id}
+            key={post.id}
             className="mainList"
           >
-  {/* <Link to={{pathname:`/posts/${postId}`, someData:{content}}}></Link> */}
-            <Link to={`/posts/${id}`} state={post}>
+            <Link to={`/posts/${post.id}`} state={post}>
               <div className='textPlace'>
                 <PostCard 
-                  content={content}
-                  created={created}
+                  post={post}
                 >
                   <CommentField />
                 </PostCard>

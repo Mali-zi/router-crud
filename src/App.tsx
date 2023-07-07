@@ -19,7 +19,9 @@ function App() {
 
 
       <Routes>
-          <Route path="/posts/:id" element={<ViewCard />}>
+          <Route path="/posts/:id" element={
+            <ViewCard />
+          }>
 
             </Route>
           <Route path="/posts/new" element={

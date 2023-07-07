@@ -5,8 +5,7 @@ export interface Post {
 }
 
 export interface PostCardProps {
-  content: string,
-  created: number,
+  post: Post,
   children: React.ReactElement;
 }
 
@@ -17,6 +16,12 @@ export interface CreatePostsProps {
 
 export interface NewPostProps {
   setPosts: (val: Post[]) => void,
+}
+
+export interface EditPostProps {
+  post: Post, 
+  setPost: (val: Post) => void,
+  setEdit: (val: boolean) => void, 
 }
 
 export interface LinkProps

@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import PostCard from './PostCard';
 import EditPost from './EditPost';
 import { useLocation } from 'react-router-dom';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Post } from '../models';
 
 export default function ViewCard(): React.ReactElement {
   const location = useLocation();
   const data = location.state as Post;
-  const content = data.content;
-  const created = data.created;
-  const id = data.id;
+  const [post, setPost] = useState(data);
+  const id = post.id;
   const [edit, setEdit] = useState(false);
   const navigate = useNavigate();
 
@@ -24,8 +23,7 @@ export default function ViewCard(): React.ReactElement {
   const viewPost = () => {
   return (
     <PostCard
-      content={content}
-      created={created}
+      post={post}
     >
       <div className='new-post-bottom view-card-bottom'>
         <div className='view-card-btns'>
@@ -48,7 +46,7 @@ export default function ViewCard(): React.ReactElement {
 
   return (
     <>
-      { edit ? <EditPost post={data} setEdit={setEdit} /> : viewPost() }
+      { edit ? <EditPost post={post} setEdit={setEdit} setPost={setPost} /> : viewPost() }
     </>
   )
 }

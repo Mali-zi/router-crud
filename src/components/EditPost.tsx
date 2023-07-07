@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Post, LinkProps } from '../models/index';
+import React, { useState } from 'react';
+import { EditPostProps } from '../models/index';
 import { EditPostIcons, IconDelete, IconSmile } from './Icons';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
-
-export default function EditPost({post, setEdit}: Post | any): React.ReactElement {
+export default function EditPost({post, setPost, setEdit}: EditPostProps): React.ReactElement {
   const postId = post.id;
   const [message, setMessage] = useState(post.content);
-  const navigate = useNavigate();
 
-
-  function handleSave() {
+  function handleUpdate() {
     axios
       .put(`http://localhost:7070/posts/${postId}`, {
         ...post,
         content: message,
       })
-      // .then(() => )
-      .then(() => navigate(`/posts/${postId}`))
+      .then(() => setPost({
+        ...post,
+        content: message,
+      }))
+      .then(() => setEdit(false))
   }
 
   return (
@@ -40,7 +39,6 @@ export default function EditPost({post, setEdit}: Post | any): React.ReactElemen
       <div className='avatar'>
         <img src={require('../img/avatar.jpg')} alt='avatar' className='avatar-img'></img>
       </div>
-      {/* <label htmlFor='message'>Tell us your story:</label> */}
       <textarea
         id='message'
         name='textarea'
@@ -57,14 +55,12 @@ export default function EditPost({post, setEdit}: Post | any): React.ReactElemen
     </div>
     <EditPostIcons />
     <div className='new-post-bottom'>
-      {/* <Link to='/'> */}
         <button 
           className='create-post-btn new-post-btn'
-          onClick={handleSave}
+          onClick={handleUpdate}
         >
           Сохранить
         </button>
-      {/* </Link> */}
     </div>
   </div>
 

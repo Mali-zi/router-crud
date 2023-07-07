@@ -1,11 +1,11 @@
 import { PostCardProps } from '../models/index';
 
-export default function PostCard({ content, created, children }: PostCardProps) {
+export default function PostCard({ post, children }: PostCardProps) {
 
-  let currentTime = new Date(created).toLocaleTimeString();
+  let currentTime = new Date(post.created).toLocaleTimeString();
 
   const nowTime = Date.now();
-  const passTime = nowTime - created;
+  const passTime = nowTime - post.created;
   if (passTime < 3600000) {
     currentTime = Math.floor(passTime / 1000 / 60) + ' мин.'
   } else {
@@ -26,7 +26,7 @@ export default function PostCard({ content, created, children }: PostCardProps) 
         </div>
       </div>
 
-      <div className='content'>{content}</div>
+      <div className='content'>{post.content}</div>
       <hr className='hr-line' />
       <div className='reaction'>
         <div className='reaction-left'>
