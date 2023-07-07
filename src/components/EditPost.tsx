@@ -3,6 +3,8 @@ import { EditPostProps } from '../models/index';
 import { EditPostIcons, IconDelete, IconSmile } from './Icons';
 import axios from 'axios';
 
+
+/** Компонент отображает карточку редактирования поста */
 export default function EditPost({post, setPost, setEdit}: EditPostProps): React.ReactElement {
   const postId = post.id;
   const [message, setMessage] = useState(post.content);
@@ -48,10 +50,10 @@ export default function EditPost({post, setPost, setEdit}: EditPostProps): React
         onChange={(e) => setMessage(e.target.value)}
       />
     </div>
-      <div className='new-post-midle-bottom'>
-        <div className='reaction-icon'>
-          <IconSmile />
-        </div>
+    <div className='new-post-midle-bottom'>
+      <div className='reaction-icon'>
+        <IconSmile />
+      </div>
     </div>
     <EditPostIcons />
     <div className='new-post-bottom'>
@@ -63,6 +65,5 @@ export default function EditPost({post, setPost, setEdit}: EditPostProps): React
         </button>
     </div>
   </div>
-
   )
 }

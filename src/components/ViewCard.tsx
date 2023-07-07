@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Post } from '../models';
 
+
+/** Компонент отображает карточку отдельного поста 
+ * в режиме просмотра или в режиме редактирования */
 export default function ViewCard(): React.ReactElement {
   const location = useLocation();
   const data = location.state as Post;

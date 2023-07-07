@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import PostCard from './PostCard';
 import { Link } from 'react-router-dom';
-import { CreatePostsProps, Post } from '../models/index';
+import { CreatePostsProps } from '../models/index';
 import CommentField from '../components/CommentField';
-import { Route, Routes, useParams } from 'react-router-dom';
 
 /** 
- * Компонент CreatePosts выводит сообщения, введенные пользователем.
- * В качестве props принимает переменные состояния: posts и setPosts.
+ * Компонент Main выводится на главную страницу "/" 
+ * Отображается список существующих постов в виде карточек 
  */
 export default function Main({ posts, setPosts }: CreatePostsProps): React.ReactElement{
-  function handleClickCreate() {
-
-  };
 
   useEffect(() => {
     axios.get(`http://localhost:7070/posts`)
         .then((response) => setPosts(response.data))
   }, []);
-
-  
 
   let postsList: JSX.Element[] = [<></>];
   if (posts) {
@@ -41,7 +35,6 @@ export default function Main({ posts, setPosts }: CreatePostsProps): React.React
               </div>
             </Link>
           </li>
-  
       )} else {
         return <></>
       }
