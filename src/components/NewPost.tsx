@@ -9,10 +9,11 @@ export default function NewPost({ setPosts }: NewPostProps): React.ReactElement 
   const [message, setMessage] = useState('');
 
   function handleClickSend() {
-    if (message) {
+    const newPost = message.trim();
+    if (newPost) {
       axios.post(`http://localhost:7070/posts`, {
         id: 0,
-        content: message,
+        content: newPost,
       })
       .then((response) => {
         setPosts(response.data);
